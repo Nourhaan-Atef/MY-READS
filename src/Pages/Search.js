@@ -1,7 +1,7 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
+import SearchItems from "../Components/SearchItems";
 
-function Search() {
+function Search({ books, handleQuery, searchB, Shelfchange }) {
   return (
     <>
       <div className="search-books">
@@ -10,12 +10,15 @@ function Search() {
             Close
           </NavLink>
           <div className="search-books-input-wrapper">
-            <input type="text" placeholder="Search by title, author, or ISBN" />
+            <input
+              type="text"
+              placeholder="Search by title, author, or ISBN"
+              value={searchB.value}
+              onChange={handleQuery}
+            />
           </div>
         </div>
-        <div className="search-books-results">
-          <ol className="books-grid"></ol>
-        </div>
+        <SearchItems books={books} Shelfchange={Shelfchange} searchB={searchB} />
       </div>
     </>
   );

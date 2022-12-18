@@ -6,13 +6,33 @@ import * as BookAPI from "./BooksAPI";
 import { useState, useEffect } from "react";
 function App() {
   const [books, setBooks] = useState([]);
-  console.log(books);
+  const [Query, setQuery] = useState([]);
+  const [searchB, setSearchB] = useState([]);
 
   useEffect(() => {
     BookAPI.getAll().then((res) => {
       setBooks(res);
     });
   }, []);
+  useEffect(() => {
+    let isActive = true;
+    if (Query) {
+      BookAPI.search(Query).then((res) => {
+        if (res.error) {
+          console.log(res);
+        } else {
+          if (isActive) {
+            setSearchB(res);
+            console.log(res);
+          }
+        }
+      });
+    }
+    return () => {
+      isActive = false;
+      setSearchB([]);
+    };
+  }, [Query]);
 
   const Shelfchange = async (book, shelf) => {
     BookAPI.update(book, shelf);
@@ -21,6 +41,9 @@ function App() {
     });
   };
 
+  const handleQuery = (e) => {
+    setQuery(e.target.value);
+  };
   return (
     <Router>
       <div className="app">
@@ -31,7 +54,17 @@ function App() {
             element={<Books books={books} Shelfchange={Shelfchange} />}
           />
 
-          <Route path="/MY-READS/search" element={<Search />} />
+          <Route
+            path="/MY-READS/search"
+            element={
+              <Search
+                books={books}
+                handleQuery={handleQuery}
+                searchB={searchB}
+                Shelfchange={Shelfchange}
+              />
+            }
+          />
         </Routes>
       </div>
     </Router>
