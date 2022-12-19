@@ -4,6 +4,7 @@ import Books from "./Pages/Books";
 import Search from "./Pages/Search";
 import * as BookAPI from "./BooksAPI";
 import { useState, useEffect } from "react";
+import NotFoundPage from "./Pages/NotFoundPage";
 function App() {
   const [books, setBooks] = useState([]);
   const [Query, setQuery] = useState([]);
@@ -49,13 +50,13 @@ function App() {
       <div className="app">
         <Routes>
           <Route
-            path="/MY-READS"
+            path="/"
             exact
             element={<Books books={books} Shelfchange={Shelfchange} />}
           />
 
           <Route
-            path="/MY-READS/search"
+            path="/search"
             element={
               <Search
                 books={books}
@@ -65,6 +66,13 @@ function App() {
               />
             }
           />
+          <Route
+            path="/*"
+            element={
+              <NotFoundPage />
+            }
+          />
+
         </Routes>
       </div>
     </Router>

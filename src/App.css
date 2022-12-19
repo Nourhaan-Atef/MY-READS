@@ -1,3 +1,5 @@
+
+
 html,
 body,
 .root {
@@ -174,4 +176,41 @@ body,
   padding: 20px 10px 0;
   text-align: center;
   font-size: 0.8em;
+}
+
+/* Not Found Page */
+.notFoundPageContent {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.notFoundPageContent h2 {
+  color: #ff4f5a;
+  font-size: 50px;
+  font-family: cursive;
+}
+.notFoundPageContent .back {
+  background-color: #ff4f5a;
+  color: #fff;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  transition: 0.5s;
+  font-size: 20px;
+  font-weight: bold;
+}
+.notFoundPageContent .back:hover {
+  background-color: #fff;
+  color: #ff4f5a;
+  border-color: #ff4f5a;
+}
+.notFoundPageContent div.image {
+  background-image: url(./../public/Images/NotFoundImage.jpg);
+  width: 600px;
+  height: 600px;
+  background-position: center;
+  background-size: cover;
 }

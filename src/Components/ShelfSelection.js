@@ -32,7 +32,7 @@ function ShelfSelection({ books, Shelfchange, shelf }) {
     <>
       <div className="book-shelf-changer">
         <select onChange={ShelfUpdate} value={shelf ? shelf : "none"}>
-          <option value="none" disabled>
+          <option value="" disabled>
             Move to...
           </option>
           {Shelves.map((shelf) => {

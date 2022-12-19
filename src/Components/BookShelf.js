@@ -1,7 +1,7 @@
 import React from "react";
 import Book from "./Book";
 function BookShelf({ books, shelf, ShelfTitle, Shelfchange }) {
-  const ShelfCategory = books.filter((book) => book.shelf === shelf);
+const ShelfCategory = books.filter((book) => book.shelf === shelf);
 
 
   return (

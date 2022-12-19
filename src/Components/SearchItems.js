@@ -14,7 +14,7 @@ function SearchItems({ books, searchB, Shelfchange }) {
               book.shelf = "none";
             }
             return (
-              <Book books={book} key={book.id} Shelfchange={Shelfchange} />
+              <Book books={book} key={book.id} Shelfchange={Shelfchange} shelf={book.shelf}/>
             );
           })}
         </ol>
