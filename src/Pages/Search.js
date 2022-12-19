@@ -6,7 +6,7 @@ function Search({ books, handleQuery, searchB, Shelfchange }) {
     <>
       <div className="search-books">
         <div className="search-books-bar">
-          <NavLink to="/" className="close-search">
+          <NavLink to="/MY-READS" className="close-search">
             Close
           </NavLink>
           <div className="search-books-input-wrapper">

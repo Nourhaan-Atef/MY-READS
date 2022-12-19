@@ -50,17 +50,13 @@ function App() {
       <div className="app">
         <Routes>
           <Route
-            path="/"
-            exact
-            element={<Books books={books} Shelfchange={Shelfchange} />}
-          />
-          <Route
             path="/MY-READS"
             exact
             element={<Books books={books} Shelfchange={Shelfchange} />}
           />
+      
           <Route
-            path="/search"
+            path="/MY-READS/search"
             element={
               <Search
                 books={books}
