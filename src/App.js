@@ -54,7 +54,11 @@ function App() {
             exact
             element={<Books books={books} Shelfchange={Shelfchange} />}
           />
-
+          <Route
+            path="/MY-READS"
+            exact
+            element={<Books books={books} Shelfchange={Shelfchange} />}
+          />
           <Route
             path="/search"
             element={
@@ -66,13 +70,7 @@ function App() {
               />
             }
           />
-          <Route
-            path="*"
-            element={
-              <NotFoundPage />
-            }
-          />
-
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
     </Router>
